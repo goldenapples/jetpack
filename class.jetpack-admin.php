@@ -102,7 +102,7 @@ class Jetpack_Admin {
 				} else {
 					do_action( 'jetpack_module_more_info_' . $module );
 				}
-				
+
 				/**
 				* Filter the long description of a module.
 	 			*
@@ -117,7 +117,7 @@ class Jetpack_Admin {
 				/**
 				 * Filter the search terms for a module
 				 *
-				 * Search terms are be typically added to a module in module-info.php.
+				 * Search terms are typically added to the module headers, under "Search Terms"..
 				 *
 				 * Use syntax:
 				 * function jetpack_$module_search_terms( $terms ) {
@@ -129,7 +129,7 @@ class Jetpack_Admin {
 				 * @since 3.5.0
 				 * @param string The search terms (comma separated)
 				 */
-				echo apply_filters( 'jetpack_search_terms_' . $module, '' );
+				echo apply_filters( 'jetpack_search_terms_' . $module, $module_array['search_terms'] );
 				$module_array['search_terms'] = ob_get_clean();
 
 				$module_array['configurable'] = false;
